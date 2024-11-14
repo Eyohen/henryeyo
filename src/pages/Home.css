@@ -1,0 +1,161 @@
+@keyframes slideFromTop {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideFromLeft {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-from-top {
+    animation: slideFromTop 1s ease-out;
+    position: relative;
+  }
+  
+  .slide-from-left {
+    animation: slideFromLeft 1s ease-out;
+    position: relative;
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  
+  .slide-from-right {
+    animation: slideFromRight 1s ease-out;
+    position: relative;
+    animation-delay: 1s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+
+  .orbit-system {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg);
+  }
+  
+  .center-element {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
+  
+  .partner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    margin-left: -55px; /* Half of the width to center */
+    margin-top: -18px;  /* Half of the height to center */
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+  
+  .partner-1 {
+    animation: orbit 15s linear infinite;
+  }
+  
+  .partner-2 {
+    animation: orbit 15s linear infinite;
+    animation-delay: -3s;
+  }
+  
+  .partner-3 {
+    animation: orbit 15s linear infinite;
+    animation-delay: -6s;
+  }
+  
+  .partner-4 {
+    animation: orbit 15s linear infinite;
+    animation-delay: -9s;
+  }
+  
+  .partner-5 {
+    animation: orbit 15s linear infinite;
+    animation-delay: -12s;
+  }
+  
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(160px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(160px) rotate(-360deg);
+    }
+  }
+  
+  /* Make text more visible */
+  .partner {
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+    background: white;
+  }
+  
+  /* Hover effect */
+  .partner:hover {
+    transform: scale(1.1) translateZ(20px);
+    z-index: 10;
+    background-color: #f0f0f0;
+  }
+  
+  /* Ensure the center element stays on top */
+  .center-element {
+    position: absolute;
+    z-index: 1000;
+  }
+
+   /* Add the bounce animation */
+.bounce-animation {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translate(-50%, -50%) translateY(0px);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-20px);
+    }
+  }
+  
+  /* Update center-element to accommodate bounce */
+  .center-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    transform-style: preserve-3d;
+  }
+  
+  /* Making sure LOL tag stays visible above orbiting elements */
+  .center-element p {
+    transform-style: preserve-3d;
+    transform: translateZ(20px);
+  }
