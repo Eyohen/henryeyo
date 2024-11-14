@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import './Home.css'
+
 
 const Contact = () => {
   return (
@@ -8,10 +10,10 @@ const Contact = () => {
 
 <div className='flex justify-center items-center h-[100vh]'>
 <div className='px-6 pt-[150px] w-[1000px] mx-auto'>
-        <p className='font-medium text-xl'>SEND ME A MESSAGE</p>
-        <p className='font-bold text-6xl max-w-[900px] mt-3'>Send me a message and i'll get back to you within an hour</p>
+        <p className='font-medium text-xl slide-from-top'>SEND ME A MESSAGE</p>
+        <p className='font-bold text-6xl max-w-[900px] mt-3 slide-from-left'>Send me a message and i'll get back to you within an hour</p>
 
-        <div className='border border-xl bg-gray-200 rounded-xl px-9 py-9 mt-6'>
+        <div className='border border-xl bg-gray-200 rounded-xl px-9 py-9 mt-6 slide-from-right'>
 
             <p className='text-lg'>Name</p>
             <input className='w-full px-3 py-2 rounded-md' placeholder='John Doe' />
