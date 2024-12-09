@@ -1,67 +1,126 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+// import React from 'react'
+// import Navbar from '../components/Navbar'
+// import pigeonhire from '../assets/pigeonhire.png'
+// // import './Home.css'
+// import { Link } from 'react-router-dom'
+
+
+// const Home = () => {
+
+//   return (
+//     <>
+//     {/* <Navbar/> */}
+//     <div className="font-questrial"> {/* Wrapper div */}
+
+
+
+//             {/* <div className='w-[1500px] mx-auto px-4 md:px-8 lg:px-16 xl:px-24 py-8'> */}
+
+//             <p className='text-3xl text-gray-400 md:text-4xl lg:text-6xl font-bold mt-8 md:mt-16 slide-from-top'>
+//               Henry Eyo .
+//             </p>
+//             <p className='text-3xl md:text-4xl lg:text-6xl font-bold mt-4 md:mt-4 slide-from-top'>
+//               Fullstack Developer
+//             </p>
+            
+//             <div className='mt-32'> {/* Added spacing for paragraphs */}
+//               <p className='text-xl md:text-2xl lg:text-4xl slide-from-left'>
+//                 Featured Projects
+//               </p>
+
+//             </div>
+
+
+//         <div className='mt-16'>
+//         <div className='flex gap-x-4 '>
+//                     <Link to='/casestudy' className='w-full sm:w-auto'>
+//                       <button className='w-full bg-gray-400 text-white text-lg px-6 md:px-9 py-2 md:py-3 rounded-2xl transition-colors'>
+//                         Web Design
+//                       </button>
+//                     </Link>
+//                     <Link to='https://www.pigeonhire.com/' className='w-full sm:w-auto'>
+//                       <button className='w-full bg-gray-400 text-white text-lg px-6 md:px-9 py-2 md:py-3 rounded-2xl hover:text-white transition-colors'>
+//                         Visit website
+//                       </button>
+//                     </Link>
+//                   </div>
+//                   <p className='font-bold text-4xl mt-9'>Pigeonhire</p>
+//                     <p className='text-xl md:text-2xl lg:text-2xl mt-9'>
+//                       Business directory to secure partnerships in Communities
+//                     </p>
+
+//             <div className='rounded-2xl p-4 md:p-8 lg:p-16 bg-gray-50 mt-4 shadow-xl slide-from-right w-[500px]'>
+
+//                 <div className=''>
+//                   <img 
+//                     src={pigeonhire} 
+//                     className='shadow-xl rounded-lg'
+//                     alt="Pigeonhire preview"
+//                   />
+//                 </div>
+
+//               </div>
+           
+//             </div>
+
+
+//         {/* </div> */}
+      
+
+//     </div>
+  
+//     </>
+//   )
+// }
+
+// export default Home
+
+import React, { useState } from 'react'
 import pigeonhire from '../assets/pigeonhire.png'
 import './Home.css'
-import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import { BsToggle2Off,BsToggle2On, BsMoon,BsSun} from "react-icons/bs";
 
 const Home = () => {
+  const [isdark, setIsDark] = useState(false);
+
+  const handleIsDark = () => {
+    setIsDark(prev => !prev)
+  }
+
+
+
   return (
-    <>
-      <Navbar/>
-      <div className='bg-white min-h-screen mt-[85px] font-questrial'>
-        <div className='container mx-auto px-4 md:px-8 lg:px-16 xl:px-24'>
-          <p className='text-center pt-4 text-xl md:text-2xl'>Hi I'm Henry Eyo</p>
+    <div className={` ${isdark ? 'bg-black' : 'bg-white'} overflow-y-auto h-screen`}>
+      <Navbar />
+      <div className='px-64'>
+      <div className='flex justify-center items-center  gap-x-4'>{isdark ? <div onClick={handleIsDark}><BsToggle2Off color='gray' size={35} /></div> : <div onClick={handleIsDark}><BsToggle2On color='gray' size={35} /></div>}  {isdark ? <BsSun size={20} color='white'/> : <BsMoon size={20}/>}</div>  
+        <p className='font-bold text-6xl text-gray-400 mt-32'>Henry Eyo .</p>
+        <p className={`font-bold text-6xl mt-4 ${isdark ? 'text-white' : 'text-black'}`}>Full stack Developer</p>
 
-          <p className='text-3xl md:text-4xl lg:text-6xl font-bold pt-12 md:pt-32 slide-from-top'>
-            Build your dream site in days
-          </p>
-          
-          <p className='text-xl md:text-2xl lg:text-4xl mt-4 md:mt-5 slide-from-left'>
-            See how we've turned ideas into reality. Dive into the stories of
-          </p>
-          
-          <p className='text-xl md:text-2xl lg:text-4xl text-gray-400 mt-2 md:mt-3 slide-from-right'>
-            successful product designs that make a difference.
-          </p>
+        <p className='font-bold text-6xl text-gray-300 mt-32'>Featured Projects</p>
 
-          <div className='rounded-2xl p-4 md:p-8 lg:p-16 bg-green-100 w-full mt-8 md:mt-16 shadow-xl overflow-hidden slide-from-right'>
-            <div className='flex flex-col lg:flex-row gap-8 lg:gap-x-[80px]'>
-              <div className='w-full lg:w-3/5'>
-                <img 
-                  src={pigeonhire} 
-                  className='w-full h-auto shadow-xl rounded-lg'
-                  alt="Pigeonhire preview"
-                />
-              </div>
+        <div className='mt-12'>
+          <div className='flex gap-x-4'>
+            <button className='bg-gray-400 text-white text-lg px-6 py-2 rounded-lg'>Case Study</button>
+            <button className='bg-gray-400 text-white text-lg px-9 py-2 rounded-lg'>Website</button>
+          </div>
+          <p className={`text-4xl font-bold mt-6 ${isdark ? 'text-white' : 'text-black'}`}>Pigeonhire</p>
+          <p className={`mt-6 font-thin text-xl ${isdark ? 'text-white' : 'text-black'}`}>Business directory to secure partnerships in Communities</p>
 
-              <div className='w-full lg:w-2/5'>
-                <p className='font-bold text-xl'>Pigeonhire</p>
-
-                <p className='font-bold text-xl pt-8 lg:pt-16'>WEB APPLICATION</p>
-                <p className='font-bold text-2xl md:text-3xl lg:text-5xl pt-4'>
-                  Business directory to secure partnerships in Communities
-                </p>
-
-                <div className='flex flex-col sm:flex-row gap-4 sm:gap-x-6 pt-6 md:pt-9'>
-                  <Link to='/casestudy'>
-                    <button className='w-full sm:w-auto bg-green-500 text-white text-lg px-6 md:px-9 py-3 md:py-4 rounded-2xl hover:bg-green-600 transition-colors'>
-                      Case Study
-                    </button>
-                  </Link>
-                  <Link to='https://www.pigeonhire.com/'>
-                    <button className='w-full sm:w-auto border-2 border-green-500 text-green-500 text-lg px-6 md:px-9 py-3 md:py-4 rounded-2xl hover:bg-green-50 transition-colors'>
-                      Visit website
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <div className='bg-gray-50 px-12 py-10 mt-8 rounded-xl'>
+            <img 
+              src={pigeonhire} 
+              alt="Project Pigeonhire" 
+              className='w-full h-auto object-cover mb-4'
+            />
+      
           </div>
         </div>
-
-        <div className='mb-12'></div>
       </div>
-    </>
+
+      <div className='mb-32'></div>
+    </div>
   )
 }
 

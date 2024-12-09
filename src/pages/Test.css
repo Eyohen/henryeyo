@@ -1,0 +1,57 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent vertical scrolling */
+  }
+  
+  .infinite-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  .slider-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 10s linear infinite;
+  }
+  
+  .card {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 250px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Grow the card when in the middle of the viewport */
+  .card:nth-child(3) {
+    transform: scale(1.5);
+    z-index: 2;
+  }
+  
+  /* Animation for infinite horizontal scroll */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-calc(200px * 6 + 2rem * 5)); /* Total width of all cards + gap */
+    }
+  }
+  

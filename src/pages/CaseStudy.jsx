@@ -1,160 +1,11 @@
-// import React, { useState } from 'react';
-// import Navbar from '../components/Navbar';
-// import pigeonhire from '../assets/pigeonhire.png';
-// import pigeonpricing from '../assets/pigeonpricing.png';
-// import pigeonfaq from '../assets/pigeonfaq.png';
-// import './Home.css'
-
-// const CaseStudy = () => {
-//   const [isLoading, setIsLoading] = useState(true);
-//   const [frame1, setFrame1] = useState(true);
-//   const [frame2, setFrame2] = useState(false);
-//   const [frame3, setFrame3] = useState(false);
-
-//   const handleFrame1 = () => {
-//     setFrame1(true);
-//     setFrame2(false);
-//     setFrame3(false);
-//   };
-
-//   const handleFrame2 = () => {
-//     setFrame2(true);
-//     setFrame1(false);
-//     setFrame3(false);
-//   };
-
-//   const handleFrame3 = () => {
-//     setFrame3(true);
-//     setFrame1(false);
-//     setFrame2(false);
-//   };
-
-//   return (
-//     <div>
-//       <Navbar />
-
-//       <div className="mt-[100px] md:mt-[185px] px-4 sm:px-6 md:px-12 lg:px-48">
-//         <p className="slide-from-top text-sm md:text-base">WEB APPLICATION</p>
-//         <p className="font-bold text-3xl md:text-4xl lg:text-5xl pt-4 slide-from-left leading-tight">
-//           Business directory to secure partnerships in Communities
-//         </p>
-
-//         <div className="flex flex-col md:flex-row md:justify-center gap-y-8 md:gap-x-12 lg:gap-x-32 pt-12 md:pt-24 slide-from-right">
-//           <div className="text-center md:text-left">
-//             <p className="text-lg md:text-xl">COMPANY</p>
-//             <p className="font-bold text-xl md:text-2xl">Pigeonhire</p>
-//           </div>
-
-//           <div className="text-center md:text-left">
-//             <p className="text-lg md:text-xl">ROLE</p>
-//             <p className="font-bold text-xl md:text-2xl">Fullstack Engineer</p>
-//           </div>
-
-//           <div className="text-center md:text-left">
-//             <p className="text-lg md:text-xl">EXPERTISE</p>
-//             <p className="font-bold text-xl md:text-2xl">Fullstack development</p>
-//           </div>
-//         </div>
-
-//         <div className="rounded-2xl px-4 sm:px-8 md:px-16 py-12 md:py-24 bg-gray-100 mx-auto mt-8 md:mt-16 shadow-xl overflow-hidden slide-from-right">
-//           {frame1 && (
-//             <div className="relative w-full md:w-[800px] lg:w-[1000px] xl:w-[1300px] mx-auto overflow-hidden">
-//               <img 
-//                 src={pigeonhire} 
-//                 alt="Pigeonhire main"
-//                 className="w-full h-full object-cover rounded-lg"
-//               />
-//             </div>
-//           )}
-
-//           {frame2 && (
-//             <div className="relative w-full md:w-[800px] lg:w-[1000px] xl:w-[1300px] mx-auto overflow-hidden">
-//               <img 
-//                 src={pigeonpricing} 
-//                 alt="Pigeonhire pricing"
-//                 className="w-full h-full object-cover rounded-lg"
-//               />
-//             </div>
-//           )}
-
-//           {frame3 && (
-//             <div className="relative w-full md:w-[800px] lg:w-[1000px] xl:w-[1300px] mx-auto overflow-hidden">
-//               <img 
-//                 src={pigeonfaq} 
-//                 alt="Pigeonhire FAQ"
-//                 className="w-full h-full object-cover rounded-lg"
-//               />
-//             </div>
-//           )}
-
-//           <div className="flex flex-wrap justify-center gap-4 mt-6 md:mt-9">
-//             <div 
-//               onClick={handleFrame1} 
-//               className={`cursor-pointer transition-opacity duration-200 ${
-//                 frame1 ? 'opacity-100 border-2 border-black' : 'opacity-40'
-//               } rounded-md`}
-//             >
-//               <img 
-//                 src={pigeonhire} 
-//                 alt="Thumbnail 1"
-//                 className="object-cover w-[100px] h-[80px] md:w-[150px] md:h-[120px] rounded-md"
-//               />
-//             </div>
-
-//             <div 
-//               onClick={handleFrame2} 
-//               className={`cursor-pointer transition-opacity duration-200 ${
-//                 frame2 ? 'opacity-100 border-2 border-black' : 'opacity-40'
-//               } rounded-md`}
-//             >
-//               <img 
-//                 src={pigeonpricing} 
-//                 alt="Thumbnail 2"
-//                 className="object-cover w-[100px] h-[80px] md:w-[150px] md:h-[120px] rounded-md"
-//               />
-//             </div>
-
-//             <div 
-//               onClick={handleFrame3} 
-//               className={`cursor-pointer transition-opacity duration-200 ${
-//                 frame3 ? 'opacity-100 border-2 border-black' : 'opacity-40'
-//               } rounded-md`}
-//             >
-//               <img 
-//                 src={pigeonfaq} 
-//                 alt="Thumbnail 3"
-//                 className="object-cover w-[100px] h-[80px] md:w-[150px] md:h-[120px] rounded-md"
-//               />
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* project description */}
-//         <div className="mt-12 md:mt-24">
-//           <p className="font-bold text-3xl md:text-4xl lg:text-5xl">
-//             Project Description
-//           </p>
-
-//           <p className="font-medium text-lg md:text-xl lg:text-2xl mt-8 md:mt-16 max-w-[900px]">
-//             Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div className="mb-32 md:mb-64"></div>
-//     </div>
-//   );
-// };
-
-// export default CaseStudy;
-
-
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import pigeonhire from '../assets/pigeonhire.png';
 import pigeonpricing from '../assets/pigeonpricing.png';
 import pigeonfaq from '../assets/pigeonfaq.png';
 import './Home.css';
+import { GoArrowLeft } from "react-icons/go";
+import { useNavigate } from 'react-router-dom';
 
 // Add this CSS to your Home.css file
 /*
@@ -188,6 +39,8 @@ const CaseStudy = () => {
     thumb2: true,
     thumb3: true
   });
+
+  const navigate = useNavigate()
 
   const handleImageLoad = (imageKey) => {
     setLoading(prev => ({
@@ -240,8 +93,9 @@ const CaseStudy = () => {
     <div>
       <Navbar />
 
-      <div className="mt-[100px] md:mt-[185px] px-4 sm:px-6 md:px-12 lg:px-48 layout-transition">
-        <p className="slide-from-top text-sm md:text-base">WEB APPLICATION</p>
+      <div className="mt-[60px] md:mt-[60px] px-4 sm:px-6 md:px-12 lg:px-48 layout-transition">
+        <div onClick={() => navigate(-1)} className='flex gap-x-3 items-center border border-gray-400 rounded-2xl px-3 py-2 w-[200px] cursor-pointer'><button className='bg-black px-2 py-2 rounded-full'><GoArrowLeft size={25} color='white'/></button>Go Back</div>
+        <p className="slide-from-top text-sm md:text-base mt-[60px]">WEB APPLICATION</p>
         <p className="font-bold text-3xl md:text-4xl lg:text-5xl pt-4 slide-from-left leading-tight layout-transition">
           Business directory to secure partnerships in Communities
         </p>
@@ -355,6 +209,21 @@ const CaseStudy = () => {
           <p className="font-medium text-lg md:text-xl lg:text-2xl mt-8 md:mt-16 max-w-[900px] layout-transition">
             Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.
           </p>
+
+          <p className="font-medium text-lg md:text-xl lg:text-2xl mt-4 md:mt-8 max-w-[900px] layout-transition">
+            Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.       
+            Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.
+          </p>
+
+<div className='flex gap-x-4 mt-8'>
+          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>UI/UX Research</button>
+          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>web app</button>
+          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>system design</button>
+          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>database design</button>
+          </div>
+
+
+
         </div>
       </div>
 
