@@ -106,7 +106,7 @@ const CaseStudy = () => {
 
         <div className="rounded-2xl px-4 sm:px-8 md:px-8 py-9 md:py-16 bg-gray-100 mx-auto mt-8 md:mt-16 shadow-xl overflow-hidden slide-from-right layout-transition">
        
-          <div className="relative w-full md:w-[800px] lg:w-[1000px] xl:w-[1300px] mx-auto overflow-hidden layout-transition">
+          <div className="relative w-full md:w-[600px] lg:w-[800px] xl:w-[1100px] mx-auto overflow-hidden layout-transition">
             {frame1 && (
               <ImageWithSkeleton
                 src={pigeonhire}
