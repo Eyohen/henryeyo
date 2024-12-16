@@ -6,28 +6,7 @@ import pigeonfaq from '../assets/pigeonfaq.png';
 import './Home.css';
 import { GoArrowLeft } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
-
-// Add this CSS to your Home.css file
-/*
-.layout-transition {
-  transition: all 0.3s ease-in-out;
-}
-
-.image-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-*/
+import { BsToggle2Off,BsToggle2On, BsMoon,BsSun} from "react-icons/bs";
 
 const CaseStudy = () => {
   const [frame1, setFrame1] = useState(true);
@@ -39,6 +18,11 @@ const CaseStudy = () => {
     thumb2: true,
     thumb3: true
   });
+  const [isdark, setIsDark] = useState(true);
+
+  const handleIsDark = () => {
+    setIsDark(prev => !prev)
+  }
 
   const navigate = useNavigate()
 
@@ -90,35 +74,38 @@ const CaseStudy = () => {
   );
 
   return (
-    <div>
+    <div className={` ${isdark ? 'bg-black' : 'bg-white'} overflow-y-auto h-screen`}>
       <Navbar />
 
-      <div className="mt-[60px] md:mt-[60px] px-4 sm:px-6 md:px-12 lg:px-48 layout-transition">
-        <div onClick={() => navigate(-1)} className='flex gap-x-3 items-center border border-gray-400 rounded-2xl px-3 py-2 w-[200px] cursor-pointer'><button className='bg-black px-2 py-2 rounded-full'><GoArrowLeft size={25} color='white'/></button>Go Back</div>
-        <p className="slide-from-top text-sm md:text-base mt-[60px]">WEB APPLICATION</p>
-        <p className="font-bold text-3xl md:text-4xl lg:text-5xl pt-4 slide-from-left leading-tight layout-transition">
+      <div className='px-6 md:px-64'>
+
+      <div className='flex justify-center items-center  gap-x-4'>{isdark ? <div onClick={handleIsDark}><BsToggle2Off color='gray' size={35} /></div> : <div onClick={handleIsDark}><BsToggle2On color='gray' size={35} /></div>}  {isdark ? <BsSun size={20} color='white'/> : <BsMoon size={20}/>}</div> 
+      <div onClick={() => navigate(-1)} className='flex gap-x-3 items-center  rounded-2xl px-3 py-1 w-[200px] cursor-pointer text-gray-400 mt-2'><button className='bg-black px-2 py-2 rounded-full'><GoArrowLeft size={25} color='white'/></button>Go Back</div> 
+
+      <p className="slide-from-top text-sm md:text-base mt-[60px] text-gray-400">WEB APPLICATION</p>
+        <p className={`font-bold text-3xl md:text-4xl lg:text-5xl pt-4 slide-from-left leading-tight layout-transition ${isdark ? 'text-white' : 'text-black'}`}>
           Business directory to secure partnerships in Communities
         </p>
 
-        <div className="flex flex-col md:flex-row md:justify-center gap-y-8 md:gap-x-12 lg:gap-x-32 pt-12 md:pt-24 slide-from-right layout-transition">
+        <div className="flex flex-col md:flex-row md:justify-center gap-y-8 md:gap-x-12 lg:gap-x-32 pt-9 md:pt-16 slide-from-right layout-transition">
           <div className="text-center md:text-left layout-transition">
-            <p className="text-lg md:text-xl">COMPANY</p>
-            <p className="font-bold text-xl md:text-2xl">Pigeonhire</p>
+            <p className="text-lg md:text-xl text-gray-400">COMPANY</p>
+            <p className={`font-bold text-xl md:text-2xl ${isdark ? 'text-white' : 'text-black'}`}>Pigeonhire</p>
           </div>
 
           <div className="text-center md:text-left layout-transition">
-            <p className="text-lg md:text-xl">ROLE</p>
-            <p className="font-bold text-xl md:text-2xl">Fullstack Engineer</p>
+            <p className="text-lg md:text-xl text-gray-400">ROLE</p>
+            <p className={`font-bold text-xl md:text-2xl ${isdark ? 'text-white' : 'text-black'}`}>Fullstack Engineer</p>
           </div>
 
           <div className="text-center md:text-left layout-transition">
-            <p className="text-lg md:text-xl">EXPERTISE</p>
-            <p className="font-bold text-xl md:text-2xl">Fullstack development</p>
+            <p className="text-lg md:text-xl text-gray-400">SERVICE</p>
+            <p className={`font-bold text-xl md:text-2xl ${isdark ? 'text-white' : 'text-black'}`}>Fullstack development</p>
           </div>
         </div>
 
-        <div className="rounded-2xl px-4 sm:px-8 md:px-16 py-12 md:py-24 bg-gray-100 mx-auto mt-8 md:mt-16 shadow-xl overflow-hidden slide-from-right layout-transition">
-          {/* Main Image Display */}
+        <div className="rounded-2xl px-4 sm:px-8 md:px-8 py-9 md:py-16 bg-gray-100 mx-auto mt-8 md:mt-16 shadow-xl overflow-hidden slide-from-right layout-transition">
+       
           <div className="relative w-full md:w-[800px] lg:w-[1000px] xl:w-[1300px] mx-auto overflow-hidden layout-transition">
             {frame1 && (
               <ImageWithSkeleton
@@ -151,7 +138,7 @@ const CaseStudy = () => {
             )}
           </div>
 
-          {/* Thumbnails */}
+        
           <div className="flex flex-wrap justify-center gap-4 mt-6 md:mt-9 layout-transition">
             <div 
               onClick={handleFrame1} 
@@ -159,7 +146,7 @@ const CaseStudy = () => {
                 frame1 ? 'opacity-100 border-2 border-black scale-105' : 'opacity-40 hover:opacity-75'
               } rounded-md transform hover:scale-105`}
             >
-              <ImageWithSkeleton
+              <img
                 src={pigeonhire}
                 alt="Thumbnail 1"
                 className="object-cover w-[100px] h-[80px] md:w-[150px] md:h-[120px] rounded-md"
@@ -174,7 +161,7 @@ const CaseStudy = () => {
                 frame2 ? 'opacity-100 border-2 border-black scale-105' : 'opacity-40 hover:opacity-75'
               } rounded-md transform hover:scale-105`}
             >
-              <ImageWithSkeleton
+              <img
                 src={pigeonpricing}
                 alt="Thumbnail 2"
                 className="object-cover w-[100px] h-[80px] md:w-[150px] md:h-[120px] rounded-md"
@@ -189,7 +176,7 @@ const CaseStudy = () => {
                 frame3 ? 'opacity-100 border-2 border-black scale-105' : 'opacity-40 hover:opacity-75'
               } rounded-md transform hover:scale-105`}
             >
-              <ImageWithSkeleton
+              <img
                 src={pigeonfaq}
                 alt="Thumbnail 3"
                 className="object-cover w-[100px] h-[80px] md:w-[150px] md:h-[120px] rounded-md"
@@ -200,34 +187,11 @@ const CaseStudy = () => {
           </div>
         </div>
 
-        {/* Project Description */}
-        <div className="mt-12 md:mt-24 layout-transition">
-          <p className="font-bold text-3xl md:text-4xl lg:text-5xl layout-transition">
-            Project Description
-          </p>
-
-          <p className="font-medium text-lg md:text-xl lg:text-2xl mt-8 md:mt-16 max-w-[900px] layout-transition">
-            Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.
-          </p>
-
-          <p className="font-medium text-lg md:text-xl lg:text-2xl mt-4 md:mt-8 max-w-[900px] layout-transition">
-            Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.       
-            Our client, a leading technology company, aimed to revolutionize scheduling processes worldwide by introducing the world's first AI-powered scheduling app.
-          </p>
-
-<div className='flex gap-x-4 mt-8'>
-          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>UI/UX Research</button>
-          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>web app</button>
-          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>system design</button>
-          <button className='border border-gray-400 rounded-md px-4 py-2 text-2xl'>database design</button>
-          </div>
-
-
 
         </div>
-      </div>
 
-      <div className="mb-32 md:mb-64"></div>
+
+<div className="mb-32"></div>
     </div>
   );
 };

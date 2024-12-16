@@ -22,7 +22,7 @@ const Home = () => {
         <p className='font-bold text-6xl text-gray-400 mt-32 slide-from-top'>Henry Eyo .</p>
         <p className={`font-bold text-6xl mt-4 slide-from-top ${isdark ? 'text-white' : 'text-black'}`}>Full stack Developer</p>
 
-        <p className='font-bold text-6xl text-gray-300 mt-32 slide-from-left'>Featured Projects</p>
+        <p className='font-bold text-6xl text-gray-300 mt-16 slide-from-left'>Featured Projects</p>
 
         <div className='mt-12 slide-from-left'>
           <div className='flex gap-x-4'>
