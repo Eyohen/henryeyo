@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className='hidden md:flex gap-x-24'>
             <Link to='/'><p className='font-medium text-xl md:text-2xl text-gray-500'>Work</p></Link>
-            <p className='font-medium text-xl md:text-2xl text-gray-500'>About</p>
+            {/* <p className='font-medium text-xl md:text-2xl text-gray-500'>About</p> */}
             <Link to='/tools'><p className='font-medium text-xl md:text-2xl text-gray-500'>Tools</p></Link>
           </div>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
               <Link to='/' onClick={() => setIsMenuOpen(false)}>
                 <p className='font-medium text-xl text-gray-500'>Work</p>
               </Link>
-              <p className='font-medium text-xl text-gray-500'>About</p>
+              {/* <p className='font-medium text-xl text-gray-500'>About</p> */}
               <Link to='/tools' onClick={() => setIsMenuOpen(false)}>
                 <p className='font-medium text-xl text-gray-500'>Tools</p>
               </Link>
